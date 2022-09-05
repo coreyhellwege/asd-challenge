@@ -2,11 +2,11 @@ const hex = 'E3B8287D4290F7233814D7A47A291DC0F71B2806D1A53B311CC4B97A0E1CC2B93B3
 const key = 'A5D75';
 
 /**
- * Use Node's Buffer library to transform the hex strings into two Buffer objects, representing fixed-length sequences of bytes.
+ * Use Node's Buffer library to transform the hex strings into two Buffer objects representing fixed-length sequences of bytes.
  * 
- * In order for the XOR comparison to work, the key buffer needs to be the same length as the hex buffer. 
+ * In order for the XOR comparison to work the key buffer needs to be the same length as the hex buffer. 
  * Use the Buffer.from() method to achieve this by specifying the hex buffer's byte length and filling it with the key. 
- * (Note: The key must be repeated any number of times until its an even length, otherwise the buffer isnt calculated properly.
+ * Note: The key must be repeated any number of times until its an even length, otherwise the buffer isnt calculated properly.
  * 
  * Then map over the hex buffer and do the Bitwise XOR comparison on each byte with the byte from the key buffer at the same index.
  * Convert the result to a string to reveal the message.

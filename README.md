@@ -14,12 +14,12 @@
 
   <br />
 
-  <h1 align="center">ASD coin challenge</h1>
+  <h1 align="center">ASD Coin Challenge</h1>
 
   <br />
 
   <p align="center">
-    These are my answers to the Australian Signals Directorate's 75th Anniversary Commemorative Coin cipher challenge. 
+    These are my answers to the Australian Signals Directorate's 75th Anniversary Commemorative Coin Cipher Challenge. 
     <br />
     <br />
     <a href="https://github.com/coreyhellwege/asd-challenge/issues">Report Bug</a>
@@ -29,8 +29,8 @@
 
   <br />
 
-  ![Screenshot 1][coin-side-1]
-  ![Screenshot 1][coin-side-2]
+  <img src="assets/ASD-50-SIDE-A-Hires.jpg" alt="Coin tails side" width="50%">
+  <img src="assets/ASD-50-SIDE-B-Hires.jpg" alt="Coin heads side" width="50%">
 </div>
 
 <br />
@@ -42,7 +42,7 @@
     <li><a href="#challenge-2">Challenge 2</a></li>
     <li><a href="#challenge-3">Challenge 3</a></li>
     <li><a href="#challenge-4">Challenge 4</a></li>
-    <li><a href="#bonus-challenges">Bonus Challenges</a></li>
+    <li><a href="#bonus-challenge">Bonus Challenge</a></li>
   </ol>
 </details>
 
@@ -52,21 +52,21 @@
 
 On the heads side of the coin some of the letters making up 'Elizabeth II Australia' have small square symbols beneath them. My first thought was whether these symbols reference characters from the Braille alphabet.
 
-After looking up the Braille alphabet I noticed the six symbols represent the first six characters of the alphabet, A - F.
+After looking up the Braille alphabet I noticed the symbols represent the first six characters of the alphabet, A - F.
 
-<img src="assets/Braille.png" alt="Braille characters">
+<img src="assets/Braille.png" alt="Braille characters" width="50%">
 
-At first I tried to construct word(s) with the letter combination, but this didn't lead to anything meaningful.
+At first I tried to construct words with the letter combination but this didn't lead to anything meaningful.
 
-I then noticed if you reorder the six letters based on the order of the Braille characters below them, it spells `ATBASH`.
+I then noticed that if you reorder the six letters based on the order of the Braille characters below them it spells `ATBASH`.
 
-I thought this sounded familiar and then after Googling it I realised this most likely serves as a clue for the next challenge.
+This sounded familiar and after Googling the meaning I realised this most likely serves as a clue for the next challenge.
 
 <p align="right"><a href="#top">back to top</a></p>
 
 ## Challenge 2
 
-Using the clue from the first challenge I translated the rings of characters using the Atbash substitution cipher:
+Using the clue from the first challenge, I translated the rings of characters on the tails side of the coin using the Atbash substitution cipher:
 
 <img src="assets/Atbash.png" alt="Atbash alphabet">
 
@@ -116,9 +116,9 @@ The last part of the message `XORHEXA5D75` didn't make any sense, so I thought i
 
 This challenge was my favourite. 
 
-I started by copying out the large block of text contained within the inner-right segment of the coin. RIP eyes..
+I started by copying out the large block of text contained within the inner-right segment on the tails side of the coin. RIP eyes..
 
-I soon realised that this was a big hexadecimal string, as it only contains letters ranging from A-F and numbers from 0-9 (as referenced in the previous clue as well). The clue also alludes to an XOR comparison (eXclusive OR) so that's where I figured the 'A5D75' comes in.
+I soon realised that this was a big hexadecimal string as it contains letters only ranging from A-F and numbers from 0-9 (as referenced in the previous clue as well). The clue also alludes to an XOR comparison (eXclusive OR) so that's where I figured the 'A5D75' comes in.
 
 After a lot of messing around I wrote the following JavaScript function using the Node.js Buffer library to XOR the original string with the 'A5D75' key.
 
@@ -127,11 +127,11 @@ const hex = 'E3B8287D4290F7233814D7A47A291DC0F71B2806D1A53B311CC4B97A0E1CC2B93B3
 const key = 'A5D75';
 
 /**
- * Use Node's Buffer library to transform the hex strings into two Buffer objects, representing fixed-length sequences of bytes.
+ * Use Node's Buffer library to transform the hex strings into two Buffer objects representing fixed-length sequences of bytes.
  * 
- * In order for the XOR comparison to work, the key buffer needs to be the same length as the hex buffer. 
+ * In order for the XOR comparison to work the key buffer needs to be the same length as the hex buffer. 
  * Use the Buffer.from() method to achieve this by specifying the hex buffer's byte length and filling it with the key. 
- * (Note: The key must be repeated any number of times until its an even length, otherwise the buffer isnt calculated properly.
+ * Note: The key must be repeated any number of times until its an even length, otherwise the buffer isnt calculated properly.
  * 
  * Then map over the hex buffer and do the Bitwise XOR comparison on each byte with the byte from the key buffer at the same index.
  * Convert the result to a string to reveal the message.
@@ -160,7 +160,7 @@ For 75 years the Australian Signals Directorate has brought together people with
 
 <p align="right"><a href="#top">back to top</a></p>
 
-## Bonus Challenges
+## Bonus Challenge
 
 By this stage there didn't appear to be any further clues, but I knew there had to be another message related to the bold, unbold and semibold characters from the rings of text.
 
@@ -187,5 +187,3 @@ Translating the corresponding Morse Code characters reveals the following messag
 [stars-url]: https://github.com/coreyhellwege/asd-challenge/stargazers
 [issues-shield]: https://img.shields.io/github/issues/coreyhellwege/asd-challenge.svg?style=for-the-badge
 [issues-url]: https://github.com/coreyhellwege/asd-challenge/issues
-[coin-side-1]: assets/ASD-50-SIDE-A-Hires.jpg
-[coin-side-2]: assets/ASD-50-SIDE-B-Hires.jpg
